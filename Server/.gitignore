@@ -1,0 +1,6 @@
+server/
+env/
+<<<<<<< HEAD
+=======
+__pycache__/
+>>>>>>> 63b86b5d6bc5d15df19f0a1dc5ccd8317e02f22e

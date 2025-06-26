@@ -1,0 +1,526 @@
+{
+    "classes": [
+        "DRUG"
+    ],
+    "annotations": [
+        [
+            "IP 700 mg Spectrum Tablets Mebendazole Mebex Anthelmintic Broad Cipla",
+            {
+                "entities": [
+                    [
+                        27,
+                        44,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "30 capsules Cipla Rx Formotero Fumarate and Budesonide Powder For Inhalation IP foracort rotacaps 200",
+            {
+                "entities": [
+                    [
+                        21,
+                        39,
+                        "DRUG"
+                    ],
+                    [
+                        44,
+                        54,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "th 44mt4 Manuiacihtd Di Sen 8 place protocted from light medopharm 0a4 TxSat 76a 4 34 B Induetrial Aroa a Ter Malur 563 160 INDIA PARACETAMOL TABLETS IP 500 MG 10 Ta Medonol500 Kaep out of roach ofchildren 9314r 00 F Heaxr an Iio Eocunco tablel containg Over dose mGy bo Injurioue to It Balacetamd P Go61 Ig Mig Lic No Kty 25 445 200 Droage As direcndpy the physician Fta 4J 744 Manufaceedby I4 dr p 0 protoctod Irom Ieh medopbarm 8 04 4745 Fn MBiusttal Aroa TaGry Malut 563 160 INDIA dry Am",
+            {
+                "entities": [
+                    [
+                        130,
+                        141,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Diethylamine Methyl Salicylate Oleum Lini Menthol Gel 30 g 2 INFLA GEL gojudl Paln Muscular Paln Eibow Pain aok ainammatory Diclofenac Jolnt Paln",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "DE R M A ShAdow SPF 30 Gel PA Excellent composition for Oily Combination skin types Humid weather conditions Excessive sweating Formulated with Micronized Zinc Oxide Avobenzone Sulisobenzone for broad spectrum protection Non greasy Water resistant formula UVA UVB Fix",
+            {
+                "entities": [
+                    [
+                        155,
+                        165,
+                        "DRUG"
+                    ],
+                    [
+                        177,
+                        190,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Adapalene Clindamycin 10g ACNERIS QoRr gel 84 Ja",
+            {
+                "entities": [
+                    [
+                        0,
+                        21,
+                        "DRUG"
+                    ],
+                    [
+                        26,
+                        33,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "k Mmnoxidil Finasteride Topical Solution Coverit Plus Spray tTH Wilh Lid Micro IOOnl",
+            {
+                "entities": [
+                    [
+                        12,
+                        23,
+                        "DRUG"
+                    ],
+                    [
+                        64,
+                        68,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "777 Tfan 4facra DE MINE H4g RxfTT Manuiaclured by Mfg Lic No 2060 F Mig LicNo Each unce blet contains LOMUS Prometna P phanaceblleals Pvk Lid Iicals pt La consta Xsrnfoncu Nepai andu Nepal rdt Louus 44 3ua Lohus a 2 Tta MINe dEvOMNEE DEVOMINE Devomine DEvOI BNo Dv X Tie T argetr",
+            {
+                "entities": [
+                    [
+                        28,
+                        33,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "0 ADACLIN Adapalenerg Clndamycin Phosphale Gel g5ida Anttacne Gel 40 9 cpmeoeitton Tin T j fu TTw Varee UEP 0 1 wlw Aluminium Foil f ar ArazekI Pnosphate USP Tv T 4k Farof 7r MnVjak Arbcidamycin 1 wlw 91 T4r sinair TrTU sRt G Jen",
+            {
+                "entities": [
+                    [
+                        53,
+                        61,
+                        "DRUG"
+                    ],
+                    [
+                        175,
+                        194,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "PcEWm ALLOPURIROL TABLET3 US Your health partner",
+            {
+                "entities": [
+                    [
+                        6,
+                        17,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Micro Amiodorore Toblets IP 1098 Amiodar 100 Axizn E",
+            {
+                "entities": [
+                    [
+                        33,
+                        40,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "AMOXICILLIN AMOXICILLIN CAPSULES Each capsule contains Amoxicillin trihydrate equivalent to SOdmg 10x 2 Capsules 500mg",
+            {
+                "entities": [
+                    [
+                        0,
+                        11,
+                        "DRUG"
+                    ],
+                    [
+                        12,
+                        23,
+                        "DRUG"
+                    ],
+                    [
+                        55,
+                        77,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "0 NDC 0456 0459 01 Armour Thyroid Ar thyroid tablets USP 0 S C 1 GRAIN 60 mg a 1 Each tablet contains R levothyroxine TA 38 mcg 1 liothyronine T3 9 mcg K 100 TABLETS 0 AF be Allergan Al b",
+            {
+                "entities": [
+                    [
+                        104,
+                        117,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Azathiopine Tablets IP 50 mg Azoldng N",
+            {
+                "entities": [
+                    [
+                        0,
+                        11,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "10 x 14 s Blister strips Bisoprolol Fumarate Tablets USP BISOLOL 2 5 faviaia 4 Lerh",
+            {
+                "entities": [
+                    [
+                        57,
+                        64,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Rx 10 Tablets Capecitabine Tablets IP 500 mg Capegard 500 Each film coated tablet contains NOTE Refer to the enclosed Capecitabine IP 500 mg insert for dosage directions for use and precautions Colours Red Oxide of Iron and Dioxide For sale in India and Nepal only Titanium Dosage As directed by the Oncologist Storage Store in a cool dry place Protect from light 8l9o 11 171297227 SCHEDULE H PRESCRIPTION M L 616 DRUG Goldtioretail without the Cipla Notto be sold by Medlcal CIPLA LTD prescription of Registered Mfd by Goa 403 722 INDIA Practitioner Oncologist only Verna Indl Estate pack",
+            {
+                "entities": [
+                    [
+                        118,
+                        130,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "dOx1Os Strps CARBAMAZEPINE TABLETS IP dela oo BAZETOL 200",
+            {
+                "entities": [
+                    [
+                        13,
+                        26,
+                        "DRUG"
+                    ],
+                    [
+                        46,
+                        53,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "1C 5 Tabilels Clopidogrel Bisulphate Tablets IP Clopid arilfag",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Cetiizine Hydochlorde Tablets IP CTZZ Ft 1 Tu npl",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "DIGICON i6rd1 Itraconazole Capsules 10Omg capsules Strib",
+            {
+                "entities": [
+                    [
+                        14,
+                        26,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "7 12 film coated tablets 250 mg 8 100 mg 6 Atovaquone Proguanil 8 N 1 250 mgl 1 film coated tablets Alovaquone Proguanil hydrochloride 6 L Amarox Hydrochloride mg 100",
+            {
+                "entities": [
+                    [
+                        43,
+                        53,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Estradiol Tablets USP 2 mg Abbott Estrabetm 2 2 mg 28 Tablets Abbott",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "ALan Mntnt T3 32T7 03J 4 6 Ofloxacin Tablets USP MAXlIva Exod 400 Uaxz 00 10 X10 Tablets",
+            {
+                "entities": [
+                    [
+                        27,
+                        36,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "70 20 20 mg 1 FAMODIN Famotidine 10 x 10 Tabicts a 1601n70 Ea",
+            {
+                "entities": [
+                    [
+                        14,
+                        32,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "79198 01 01 L2Y DEV 7 SJP1Q I 77o5O1 7 10 Letrozole Tablets IP alf FAMP 4 4 4 10x10 Tablets Pvt Elln aaed oeromairs Droston TerinDord Letzze Dabur 74 777775718777t 1 TIHET 17574737776 767 554677777 1 Lid Nopal Remedies",
+            {
+                "entities": [
+                    [
+                        42,
+                        51,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "C po 0 Tcns Ou 8 Tec Evc Vnco cd bixi conn o c dr Flucyoe IF 200 TO Excipic O 3eh Doa 3 2 3 Sl 3 A direced pnyaicn 3 3 3s 3 3t0rge Stor below 25 03 ecursion pemmitted Denween TS C 0 30 C Protect trom light JOLLY HEALTHCARE Enabling Docton Worldwide Flucytosine Tablets IP TM CYTOFLU isel47 WHO GMP 1Ox10 Tablets Approved 7i DY s0umg",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "5 x 1 ml Granisetron Hydrochloride Injection USP ARISTO practo grandem 3s grandem Imglml L V L M USE ONLY ARISTO",
+            {
+                "entities": [
+                    [
+                        9,
+                        34,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "NUMARKO Extra Strength Ibuprofen 4OOmg Coated Tablets Strong powerful relief 48 tablets pain",
+            {
+                "entities": [
+                    [
+                        23,
+                        32,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "100 Tablets Eachua Levotto LEVOTHYROXINE Any n SODIUM TABLETS Ejr IP 50 mcg Dosat Stedz LETHYROX 45 68 50 mcg 1 Synnai Puezi Keepolos",
+            {
+                "entities": [
+                    [
+                        27,
+                        40,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "hexebecare 10 blisters of 10 tablets Rx Levocetiizine Tablets TM Levoget fiakz spracto 8 31 IP 5mg",
+            {
+                "entities": [
+                    [
+                        40,
+                        53,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Meloxicam Tablets BP 15 mg I0 10 Tablets",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Eler Projects R Metoprolol Tartrate Tablets IP 25 mg Metoder 25 4 4x5x 10 Tablets 707 Ia an 58 8816 IHCL Tv40FIhI 01 ua4 0s e74 AON Adldx 20c 33q547O5 295 1 3 5G21150 MFs DEC 2021 EXPIRY R5 34 50 Per 10 TaBS INCLOF ALL TIV J0 TONI SeVl 0 43d Os DE st AON Arldxe Izoz 3aq 3 wos zas64h 9 02 6 2 1 0 j F I 778 40 T3NI Sav 0 Had 95 DE 4 4 4 AON AdIdxa I20c JJC DJW OSLIZSSON E 1 E 2 5021150 Tks SuJ Fie SEVI ettt Ezoc 1 1 1 1 I NOV 2023 B No AR Pa Taxes S3XU 4 4 Ezoza 1 1 3 u 53 11 E2oz 1 1 1 1",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "NEOSTIGMINE 0 5igl METHYLSULPHATE INJECTION P Myostigmin ITTTTA GtlyIC Kn",
+            {
+                "entities": [
+                    [
+                        19,
+                        33,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "NIKO Paracetamol Tablets BP ANALGESIC AntiPyRETIC",
+            {
+                "entities": [
+                    [
+                        5,
+                        16,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "OZ Oz373wo Guoz dl sainsde3alozejdauo sainsdej 01 01 10 x 10 Capsules R Omeprazole Capsules IP 2Omg OMELEZO 20 Capsules LXIR",
+            {
+                "entities": [
+                    [
+                        72,
+                        82,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "10 x 10 Tablets Pantoprazole Sodium Tablets L P Indopan 40 IndoFit Sciences Lile",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Pyridoxine HCI Tablets BP 10 mg Pyvita yrsffiet 25 Blister of 20 Tablets",
+            {
+                "entities": [
+                    [
+                        0,
+                        10,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "RLevodopa and Carbidopa Tablets IP Gvodopa 275",
+            {
+                "entities": [
+                    [
+                        14,
+                        23,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Emtricitabine and Tenofovir Alafenamide Tablets 200 mg 25 mg TAFICITATM and 200 mgiets mg Mylan 30 Tablets Tooki Emtricitabine Tenofovir Aafenamide Tablets Inacitat WWW mylan in Mylan",
+            {
+                "entities": [
+                    [
+                        0,
+                        13,
+                        "DRUG"
+                    ],
+                    [
+                        90,
+                        95,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "10 x 10 Capsules Rx TETRACYCLINE HydrochloRDE CAPSULES IP S00 mg TETRACIN 500 z OMEGA NEW 00 PACK",
+            {
+                "entities": [
+                    [
+                        65,
+                        73,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "SAMA H Gefitinib Tablets IP UNIGEF 250 mg 3 x 10 Tablets",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "60 Sold Galm No Q Valganciclovir Nephrology Tablets 450 mg echedule Tablets Reney Drug Jred 0 Arning Tachtk peecnpton Oy 245 Royal Square ACTIZA Utan Suat 394105 INDIA",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "523 i0bors Imatinib Tablets IP VEENAT 400 arz 0 NATCO",
+            {
+                "entities": [
+                    [
+                        11,
+                        19,
+                        "DRUG"
+                    ]
+                ]
+            }
+        ]
+    ]
+}
