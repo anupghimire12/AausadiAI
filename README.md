@@ -4,7 +4,6 @@
 
 The project leverages a powerful combination of a React Native mobile frontend and a Python backend with custom-trained Machine Learning models for Optical Character Recognition (OCR) and Natural Language Processing (NLP).
 
-## 📸 Screenshots
 
 ## 📸 Screenshots
 
