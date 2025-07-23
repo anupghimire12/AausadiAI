@@ -38,6 +38,8 @@ yarn-error.*
 *.tsbuildinfo
 
 Server/.venv
+__pycache__/
+*.pyc
 Server/venv
 Server/.env
 client/.env

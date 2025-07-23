@@ -102,7 +102,7 @@ const Header = ({
             {title}
           </Text>
           <Text style={styles.subtitle}>
-            Your AI Medicine Companion
+            Medicine Label Scanner
           </Text>
         </View>
       </View>

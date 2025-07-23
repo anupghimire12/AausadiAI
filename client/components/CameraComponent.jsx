@@ -10,12 +10,14 @@ import {
   Text,
   TouchableOpacity,
   View,
+  SafeAreaView,
 } from 'react-native';
 import { Camera, CameraType } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import Button from './Button';
 import ImagePickerComponent from './ImagePickerComponent';
 import Header from './Header';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const mock = {
   drug_name: 'Glivec 400mg Tablet Imatinib mesylate',
@@ -95,9 +97,9 @@ const CameraComponent = ({ onClose }) => {
           type: 'image/jpg',
           name: 'photo.jpg',
         });
-
-        console.log("+++++++++++++++++++++++++++++++++++++++")
+console.log("+++++++++++")
         console.log(process.env.SERVER_ADDRESS)
+
         const response = await fetch(`${process.env.SERVER_ADDRESS}/files`, {
           method: 'POST',
           headers: {
@@ -201,152 +203,100 @@ const CameraComponent = ({ onClose }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.fullScreenContainer}>
+      {(loading || data) && (
+        <View style={styles.header__container}>
+          <Header />
+        </View>
+      )}
       {loading ? (
-        <View style={{ flex: 1, justifyContent: 'flex-start', backgroundColor: '#FAFAFA' }}>
-          <View style={styles.header__container}>
-            <Header />
-          </View>
-          <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#FAFAFA' }}>
-            <ActivityIndicator size="large" color={'#2563eb'} />
-          </View>
+        <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#FAFAFA' }}>
+          <ActivityIndicator size="large" color={'#2563eb'} />
         </View>
       ) : (
-        <View style={{ flex: 1, justifyContent: 'flex-start', backgroundColor: '#FAFAFA' }}>
+        <View style={{ flex: 1, backgroundColor: '#FAFAFA' }}>
           {data ? (
-            <ScrollView style={{ backgroundColor: '#FAFAFA' }}>
-              <View>
-                <View style={styles.header__container}>
-                  <Header />
-                </View>
-                {data.is_drug_found == false ? (
-                  <View
-                    style={{
-                      marginLeft: 2,
-                      justifyContent: 'center',
-                      height: 220,
-                      position: 'relative',
-                      backgroundColor: '#FAFAFA',
-                    }}
-                  >
-                    <Image
-                      style={{
-                        width: 120,
-                        height: 120,
-                        objectFit: 'cover',
-                        borderRadius: 8,
-                        alignSelf: 'center',
-                        backgroundColor: '#F5F7FF',
-                      }}
-                      source={{ uri: drugImage }}
-                    />
-                    <Text
-                      style={{
-                        fontSize: 26,
-                        fontWeight: '600',
-                        color: '#da4848',
-                        alignSelf: 'center',
-                        position: 'absolute',
-                        bottom: 0,
-                        backgroundColor: '#FAFAFA',
-                      }}
-                    >
-                      No relevant information found
-                    </Text>
+            <SafeAreaView style={{ flex: 1, backgroundColor: '#FAFAFA' }}>
+              <ScrollView
+                contentContainerStyle={{
+                  flexGrow: 1,
+                  justifyContent: 'center',
+                  paddingBottom: 32,
+                  paddingTop: 8,
+                }}
+                showsVerticalScrollIndicator={true}
+              >
+                <View style={styles.resultCardFull}>
+                  {/* Scanned Image */}
+                  {drugImage && (
+                    <>
+                      <Image
+                        source={{ uri: drugImage }}
+                        style={styles.resultImageLarge}
+                      />
+                      {/* Medicine Name below image */}
+                      {drugName && (
+                        <Text style={styles.resultDrugName}>{drugName}</Text>
+                      )}
+                    </>
+                  )}
+                  {/* Uses */}
+                  <View style={styles.resultSectionLeft}>
+                    <Text style={styles.resultSectionTitleLeft}>Uses</Text>
+                    {Array.isArray(uses)
+                      ? uses.map((use, idx) => (
+                          <Text key={idx} style={styles.resultUsesTextLeft}>• {use}</Text>
+                        ))
+                      : <Text style={styles.resultUsesTextLeft}>{uses}</Text>
+                    }
                   </View>
-                ) : (
-                  // --- Attractive Result Section ---
-                  <View style={styles.resultCard}>
-                    <Text style={styles.resultDrugName}>{drugName}</Text>
-                    {/* Uses */}
-                    <View style={styles.resultSection}>
-                      <Text style={styles.resultSectionTitle}>Uses</Text>
-                      {Array.isArray(uses)
-                        ? uses.map((use, idx) => (
-                            <Text key={idx} style={styles.resultUsesText}>• {use}</Text>
-                          ))
-                        : <Text style={styles.resultUsesText}>{uses}</Text>
-                      }
-                    </View>
-                    {/* Side Effects */}
-                    <View style={styles.resultSection}>
-                      <Text style={styles.resultSectionTitle}>Side Effects</Text>
-                      <View style={styles.sideEffectsList}>
-                        {effects?.map((effect, index) => (
-                          <View key={index} style={styles.effectPill}>
-                            <Text style={styles.effectPillText}>• {effect}</Text>
-                          </View>
-                        ))}
-                      </View>
-                    </View>
-                    {/* Substitutes */}
-                    <View style={styles.resultSection}>
-                      <Text style={styles.resultSectionTitle}>Substitutes</Text>
-                      <View style={styles.resultUsesList}>
-                        {substitutes.length > 0
-                          ? substitutes.map((sub, idx) => (
-                              <Text key={idx} style={styles.resultUsesText}>• {sub}</Text>
-                            ))
-                          : <Text style={styles.resultUsesText}>No substitutes listed</Text>
-                        }
-                      </View>
-                    </View>
-                    {/* Other Info */}
-                    <View style={styles.resultSection}>
-                      <Text style={styles.resultSectionTitle}>Chemical Class</Text>
-                      <Text style={styles.resultInfoText}>{chemicalClass}</Text>
-                    </View>
-                    <View style={styles.resultSection}>
-                      <Text style={styles.resultSectionTitle}>Habit Forming</Text>
-                      <Text style={styles.resultInfoText}>{habitForming}</Text>
-                    </View>
-                    <View style={styles.resultSection}>
-                      <Text style={styles.resultSectionTitle}>Therapeutic Class</Text>
-                      <Text style={styles.resultInfoText}>{therapeuticClass}</Text>
-                    </View>
-                    <View style={styles.resultSection}>
-                      <Text style={styles.resultSectionTitle}>Action Class</Text>
-                      <Text style={styles.resultInfoText}>{actionClass}</Text>
+                  {/* Side Effects */}
+                  <View style={styles.resultSectionLeft}>
+                    <Text style={styles.resultSectionTitleLeft}>Side Effects</Text>
+                    <View style={styles.sideEffectsListLeft}>
+                      {effects?.map((effect, index) => (
+                        <View key={index} style={styles.effectPillLeft}>
+                          <Text style={styles.effectPillTextLeft}>• {effect}</Text>
+                        </View>
+                      ))}
                     </View>
                   </View>
-                )}
-                {/* Improved Retake Button */}
-                <TouchableOpacity
-                  style={styles.retakeButton}
-                  onPress={() => setData(null)}
-                  activeOpacity={0.85}
-                >
-                  <Text style={styles.retakeButtonIcon}>⟲</Text>
-                </TouchableOpacity>
-                {/* Return to Home Button */}
-                <TouchableOpacity
-                  style={styles.homeButton}
-                  onPress={onClose}
-                  activeOpacity={0.85}
-                >
-                  <Text style={styles.homeButtonText}>Return to Home</Text>
-                </TouchableOpacity>
-                {/* More Info Online Button */}
-                <TouchableOpacity
-                  style={{
-                    marginTop: 16,
-                    alignSelf: 'center',
-                    backgroundColor: '#2563eb',
-                    borderRadius: 12,
-                    paddingVertical: 10,
-                    paddingHorizontal: 24,
-                  }}
-                  onPress={openDrugInfo}
-                  activeOpacity={0.85}
-                >
-                  <Text style={{ color: '#fff', fontWeight: '700', fontSize: 15 }}>
-                    More Info Online
+                  {/* Disclaimer */}
+                  <Text style={styles.disclaimerFull}>
+                    Disclaimer: This information is for basic reference only. It may not be complete or fully accurate. Always consult a qualified healthcare professional before taking any medication or making health decisions.
                   </Text>
+                </View>
+                {/* More Info Online Button above footer, styled attractively */}
+                <TouchableOpacity
+                  style={styles.moreInfoButtonAttractive}
+                  onPress={openDrugInfo}
+                  activeOpacity={0.88}
+                >
+                  <MaterialCommunityIcons name="web" size={22} color="#2563eb" style={{ marginRight: 8 }} />
+                  <Text style={styles.moreInfoButtonTextAttractive}>More Info Online</Text>
                 </TouchableOpacity>
-              </View>
-            </ScrollView>
+                {/* Footer with Retake Icon and Return to Home */}
+                <View style={styles.footerFull}>
+                  <TouchableOpacity
+                    style={styles.footerButtonLeftIcon}
+                    onPress={() => setData(null)}
+                    activeOpacity={0.85}
+                  >
+                    <MaterialCommunityIcons name="camera-retake" size={32} color="#fff" />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.footerButtonRightFull}
+                    onPress={onClose}
+                    activeOpacity={0.85}
+                  >
+                    <Text style={styles.footerButtonTextFull}>Return to Home</Text>
+                  </TouchableOpacity>
+                </View>
+              </ScrollView>
+            </SafeAreaView>
           ) : (
             <View style={{ backgroundColor: '#FAFAFA', flex: 1 }}>
+              {/* NO HEADER HERE while taking image */}
               <View style={styles.topSection}>
                 <View style={{ flex: 1 }}>
                   <TouchableOpacity>
@@ -381,41 +331,21 @@ const CameraComponent = ({ onClose }) => {
                   >
                     <View></View>
                     <View style={styles.bottomSection}>
-                      {image ? (
-                        <View
-                          style={{
-                            flexDirection: 'row',
-                            justifyContent: 'space-around',
-                            borderWidth: 2,
-                            width: Dimensions.get('window').width,
-                            backgroundColor: '#F5F7FF',
-                            marginBottom: 40,
-                          }}
-                        >
-                          <Button
-                            title={'Re-take'}
-                            icon="retweet"
-                            onPress={() => setImage(null)}
-                          />
-                          <Button title={'Save'} icon="check" />
-                        </View>
-                      ) : (
-                        <View style={styles.imageOptions}>
-                          <ImagePickerComponent
-                            onSelectImage={onSelectImage}
-                            loading={loading}
-                          />
-                          <Button
-                            onPress={takePicture}
-                            style={styles.cameraIcon}
-                          />
-                          <Button
-                            icon={'cycle'}
-                            onPress={toggleCameraFace}
-                            color={'#2563eb'}
-                          />
-                        </View>
-                      )}
+                      <View style={styles.imageOptions}>
+                        <ImagePickerComponent
+                          onSelectImage={onSelectImage}
+                          loading={loading}
+                        />
+                        <Button
+                          onPress={takePicture}
+                          style={styles.cameraIcon}
+                        />
+                        <Button
+                          icon={'cycle'}
+                          onPress={toggleCameraFace}
+                          color={'#2563eb'}
+                        />
+                      </View>
                     </View>
                   </Camera>
                 ) : (
@@ -430,7 +360,6 @@ const CameraComponent = ({ onClose }) => {
           )}
         </View>
       )}
-
       <StatusBar barStyle="dark-content" backgroundColor="#FAFAFA" />
     </View>
   );
@@ -439,6 +368,13 @@ const CameraComponent = ({ onClose }) => {
 export default CameraComponent;
 
 const styles = StyleSheet.create({
+  fullScreenContainer: {
+    flex: 1,
+    backgroundColor: '#FAFAFA',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff', // White background
@@ -482,20 +418,42 @@ const styles = StyleSheet.create({
     margin: 12,
     padding: 12,
     borderWidth: 1,
-    borderColor: '#2563eb', // Blue border
-  },
-  resultHeader: {
+    borderColor: '#2563eb',
     alignItems: 'center',
-    marginBottom: 10,
+  },
+  resultCardFull: {
+    backgroundColor: '#fff',
+    borderRadius: 18,
+    margin: 10,
+    padding: 18,
+    borderWidth: 1.5,
+    borderColor: '#2563eb',
+    alignItems: 'center',
+    elevation: 4,
+    shadowColor: '#2563eb',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
   },
   resultImage: {
-    width: 80,
-    height: 80,
+    width: 120,
+    height: 120,
     borderRadius: 12,
     backgroundColor: '#e0f2fe',
-    marginBottom: 8,
+    marginBottom: 16,
     borderWidth: 1,
     borderColor: '#2563eb',
+    alignSelf: 'center',
+  },
+  resultImageLarge: {
+    width: 160,
+    height: 160,
+    borderRadius: 16,
+    backgroundColor: '#e0f2fe',
+    marginBottom: 18,
+    borderWidth: 1.5,
+    borderColor: '#2563eb',
+    alignSelf: 'center',
   },
   resultDrugName: {
     fontSize: 20,
@@ -507,11 +465,24 @@ const styles = StyleSheet.create({
   resultSection: {
     marginTop: 10,
   },
+  resultSectionLeft: {
+    marginTop: 10,
+    alignSelf: 'flex-start',
+    width: '100%',
+    paddingLeft: 10,
+  },
   resultSectionTitle: {
     fontSize: 16,
     fontWeight: '700',
     color: '#2563eb', // Blue
     marginBottom: 4,
+  },
+  resultSectionTitleLeft: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#2563eb',
+    marginBottom: 4,
+    textAlign: 'left',
   },
   resultUsesList: {
     marginTop: 4,
@@ -523,10 +494,22 @@ const styles = StyleSheet.create({
     color: '#047857', // Green
     fontWeight: '600',
   },
+  resultUsesTextLeft: {
+    fontSize: 15,
+    color: '#047857',
+    fontWeight: '600',
+    textAlign: 'left',
+  },
   sideEffectsList: {
     marginTop: 4,
     marginBottom: 8,
     paddingLeft: 8,
+  },
+  sideEffectsListLeft: {
+    marginTop: 4,
+    marginBottom: 8,
+    paddingLeft: 8,
+    alignItems: 'flex-start',
   },
   effectPill: {
     backgroundColor: 'transparent',
@@ -538,8 +521,25 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
     alignItems: 'flex-start',
   },
+  effectPillLeft: {
+    backgroundColor: 'transparent',
+    borderRadius: 0,
+    paddingVertical: 0,
+    paddingHorizontal: 0,
+    margin: 0,
+    borderWidth: 0,
+    borderColor: 'transparent',
+    alignItems: 'flex-start',
+  },
   effectPillText: {
     color: '#b91c1c', // Red
+    fontWeight: '600',
+    fontSize: 15,
+    textAlign: 'left',
+    marginBottom: 2,
+  },
+  effectPillTextLeft: {
+    color: '#b91c1c',
     fontWeight: '600',
     fontSize: 15,
     textAlign: 'left',
@@ -577,15 +577,139 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   disclaimer: {
-    color: '#b91c1c', // Red for disclaimer
-    fontSize: 13,
+    color: '#b91c1c',
+    fontSize: 14,
     textAlign: 'center',
-    marginTop: 10,
-    fontWeight: '600',
-  },
-  resultInfoText: {
-    fontSize: 15,
-    color: '#222',
+    marginTop: 18,
     marginBottom: 4,
+    fontWeight: '700',
+    backgroundColor: '#fffbe6',
+    borderRadius: 8,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: '#fbbf24',
+  },
+  disclaimerFull: {
+    color: '#e53935', // Normal red
+    fontSize: 15,
+    textAlign: 'center',
+    marginTop: 22,
+    marginBottom: 6,
+    fontWeight: '600',
+    backgroundColor: '#fff5f5',
+    borderRadius: 10,
+    padding: 12,
+    borderWidth: 1,
+    borderColor: '#ffcdd2',
+    letterSpacing: 0.1,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 24,
+    marginBottom: 24,
+    marginTop: 8,
+  },
+  footerFull: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 32,
+    marginBottom: 32,
+    marginTop: 12,
+    alignItems: 'center',
+  },
+  footerButtonLeft: {
+    backgroundColor: '#2563eb',
+    borderRadius: 18,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    minWidth: 120,
+    alignItems: 'center',
+  },
+  footerButtonLeftIcon: {
+    backgroundColor: '#2563eb',
+    borderRadius: 28,
+    padding: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 56,
+    height: 56,
+    elevation: 2,
+  },
+  footerButtonRight: {
+    backgroundColor: '#2563eb',
+    borderRadius: 18,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    minWidth: 120,
+    alignItems: 'center',
+  },
+  footerButtonRightFull: {
+    backgroundColor: '#2563eb',
+    borderRadius: 18,
+    paddingVertical: 14,
+    paddingHorizontal: 32,
+    minWidth: 140,
+    alignItems: 'center',
+    elevation: 2,
+  },
+  footerButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '700',
+    textAlign: 'center',
+    letterSpacing: 1,
+  },
+  footerButtonTextFull: {
+    color: '#fff',
+    fontSize: 17,
+    fontWeight: '700',
+    textAlign: 'center',
+    letterSpacing: 1,
+  },
+  moreInfoButton: {
+    backgroundColor: '#fff',
+    borderColor: '#2563eb',
+    borderWidth: 1.5,
+    borderRadius: 18,
+    paddingVertical: 14,
+    paddingHorizontal: 32,
+    marginHorizontal: 40,
+    marginBottom: 24,
+    alignItems: 'center',
+    elevation: 2,
+  },
+  moreInfoButtonAttractive: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: '#e0f2fe',
+    borderColor: '#2563eb',
+    borderWidth: 2,
+    borderRadius: 22,
+    paddingVertical: 14,
+    paddingHorizontal: 32,
+    marginHorizontal: 40,
+    marginBottom: 12,
+    marginTop: 10,
+    elevation: 3,
+    shadowColor: '#2563eb',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.10,
+    shadowRadius: 6,
+  },
+  moreInfoButtonText: {
+    color: '#2563eb',
+    fontSize: 16,
+    fontWeight: '700',
+    textAlign: 'center',
+    letterSpacing: 1,
+  },
+  moreInfoButtonTextAttractive: {
+    color: '#2563eb',
+    fontSize: 17,
+    fontWeight: '700',
+    textAlign: 'center',
+    letterSpacing: 1,
   },
 });

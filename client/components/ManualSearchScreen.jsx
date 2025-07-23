@@ -11,7 +11,7 @@ export default function ManualSearchScreen({ onBack }) {
     setLoading(true);
     setResult(null);
     try {
-      const response = await fetch(`${process.env.SERVER_ADDRESS}/manual_search`, {
+      const response = await fetch('http://10.138.177.155:8000/manual-search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query }),
@@ -56,14 +56,17 @@ export default function ManualSearchScreen({ onBack }) {
                 shadowRadius: 6,
                 elevation: 2,
             }}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#222', textAlign: 'center', marginBottom: 2 }}>
-              {result.drug_name}
-            </Text>
+            {/* Medicine Name */}
+            {result.drug_name && (
+              <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#222', textAlign: 'center', marginBottom: 2 }}>
+                {result.drug_name}
+              </Text>
+            )}
             {/* Uses */}
             <View style={{ marginTop: 10 }}>
               <Text style={styles.resultSectionTitle}>Uses</Text>
-              {Array.isArray(result.Uses) && result.Uses.length > 0
-                ? result.Uses.map((use, idx) => (
+              {Array.isArray(result.uses) && result.uses.length > 0
+                ? result.uses.map((use, idx) => (
                     <Text key={idx} style={styles.resultUsesText}>• {use}</Text>
                   ))
                 : <Text style={styles.resultUsesText}>No uses listed</Text>
@@ -72,41 +75,33 @@ export default function ManualSearchScreen({ onBack }) {
             {/* Side Effects */}
             <View style={{ marginTop: 10 }}>
               <Text style={styles.resultSectionTitle}>Side Effects</Text>
-              {Array.isArray(result.Side_effects) && result.Side_effects.length > 0
-                ? result.Side_effects.map((effect, idx) => (
+              {Array.isArray(result.side_effects) && result.side_effects.length > 0
+                ? result.side_effects.map((effect, idx) => (
                     <Text key={idx} style={styles.effectPillText}>• {effect}</Text>
                   ))
                 : <Text style={styles.effectPillText}>No side effects listed</Text>
               }
             </View>
-            {/* Substitutes */}
-            <View style={{ marginTop: 10 }}>
-              <Text style={styles.resultSectionTitle}>Substitutes</Text>
-              {Array.isArray(result.Substitutes) && result.Substitutes.length > 0
-                ? result.Substitutes.map((sub, idx) => (
-                    <Text key={idx} style={styles.resultUsesText}>• {sub}</Text>
-                  ))
-                : <Text style={styles.resultUsesText}>No substitutes listed</Text>
-              }
-            </View>
-            {/* Other Info */}
-            <View style={{ marginTop: 10 }}>
-              <Text style={styles.resultSectionTitle}>Chemical Class</Text>
-              <Text style={styles.resultInfoText}>{result["Chemical Class"]}</Text>
-            </View>
-            <View style={{ marginTop: 10 }}>
-              <Text style={styles.resultSectionTitle}>Habit Forming</Text>
-              <Text style={styles.resultInfoText}>{result["Habit Forming"]}</Text>
-            </View>
-            <View style={{ marginTop: 10 }}>
-              <Text style={styles.resultSectionTitle}>Therapeutic Class</Text>
-              <Text style={styles.resultInfoText}>{result["Therapeutic Class"]}</Text>
-            </View>
-            <View style={{ marginTop: 10 }}>
-              <Text style={styles.resultSectionTitle}>Action Class</Text>
-              <Text style={styles.resultInfoText}>{result["Action Class"]}</Text>
-            </View>
           </View>
+          {/* Disclaimer */}
+          <Text
+            style={{
+              color: '#e53935',
+              fontSize: 15,
+              textAlign: 'center',
+              marginTop: 22,
+              marginBottom: 6,
+              fontWeight: '600',
+              backgroundColor: '#fff5f5',
+              borderRadius: 10,
+              padding: 12,
+              borderWidth: 1,
+              borderColor: '#ffcdd2',
+              letterSpacing: 0.1,
+            }}
+          >
+            Disclaimer: This information is for basic reference only. It may not be complete or fully accurate. Always consult a qualified healthcare professional before taking any medication or making health decisions.
+          </Text>
         </ScrollView>
       )}
     </View>

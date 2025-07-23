@@ -71,15 +71,14 @@ async def create_upload_file(file: UploadFile = File(...)):
 
     result = get_result(drug_name)
     print(f"[DEBUG] Final result from get_result: {result}")
+    print("[DEBUG] get_result keys:", list(result.keys()))
+    print("[DEBUG] get_result full:", result)
 
     drug.is_drug_found = True
     drug.uses = result.get("Uses", [])
     drug.side_effects = result.get("Side_effects", [])
     drug.drug_name = result.get("Medicine_name", "")
-    drug.chemical_class = result.get("Chemical Class", "")
-    drug.habit_forming = result.get("Habit Forming", "")
-    drug.therapeutic_class = result.get("Therapeutic Class", "")
-    drug.action_class = result.get("Action Class", "")
+
     print(f"[DEBUG] Drug object to return: {drug}")
 
     return drug
@@ -89,11 +88,29 @@ async def ping():
     print("[DEBUG] Received ping from client.")
     return {"msg": "ok"};
 
-@app.post("/manual_search")
+@app.post("/manual-search")
 async def manual_search(query: dict = Body(...)):
     drug_name = cosine(query.get("query", ""))
     if not drug_name:
         return {"is_drug_found": False}
     result = get_result(drug_name)
-    result["is_drug_found"] = True
-    return result
+    # Get uses value from any possible key
+    uses = (
+        result.get("Uses")
+        or result.get("uses")
+        or result.get("Use")
+        or result.get("USAGE")
+        or result.get("indications")
+        or []
+    )
+    # Ensure uses is always a list
+    if isinstance(uses, str):
+        uses = [uses]
+    elif uses is None:
+        uses = []
+    return {
+        "is_drug_found": True,
+        "drug_name": drug_name,
+        "uses": uses,
+        "side_effects": result.get("Side_effects") or result.get("side_effects", [])
+    }

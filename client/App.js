@@ -89,7 +89,7 @@ export default function App() {
         <SafeAreaView style={{ flex: 1 }}>
           {!showCamera ? (
             screen === 'menu' ? (
-              <MenuScreen onNavigate={handleNavigate} />
+              <MenuScreen onNavigate={handleNavigate} onPing={sendPing} />
             ) : screen === 'terms' ? (
               <TermsScreen onBack={() => setScreen('menu')} />
             ) : screen === 'info' ? (
@@ -100,7 +100,7 @@ export default function App() {
               <InternetSearchScreen onBack={() => setScreen('menu')} />
             ) : (
               // fallback: show menu
-              <MenuScreen onNavigate={handleNavigate} />
+              <MenuScreen onNavigate={handleNavigate} onPing={sendPing} />
             )
           ) : (
             <CameraComponent onClose={handleCloseCamera} />
