@@ -4,7 +4,20 @@
 
 The project leverages a powerful combination of a React Native mobile frontend and a Python backend with custom-trained Machine Learning models for Optical Character Recognition (OCR) and Natural Language Processing (NLP).
 
+## 📸 Screenshots
+
+## 📸 Screenshots
+
+<img src="screenshots/Picture1.png" width="300"/> <img src="screenshots/Picture2.png" width="300"/>
+
+These screenshots show:
+- 📷 The OCR-based scanning interface.
+- 🧠 The display of extracted medicine data in the app.
+
+---
+
 ## 🌟 Key Features
+
 
 *   📷 **Scan Medicine Strips:** Instantly identify medicines by taking a picture of the box or strip.
 *   🔍 **Intelligent Text Recognition:** Utilizes OCR to extract text from the image and a custom-trained Named Entity Recognition (NER) model to accurately identify the medicine's name.
